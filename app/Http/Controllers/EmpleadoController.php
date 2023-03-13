@@ -15,7 +15,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $datos['empleados'] = Empleado::paginate(5);
+        $datos['empleados'] = Empleado::paginate(10);
         return view('empleado.index',$datos);//-> la variable $datos se debe pasar a la vista especificado como variable
     }
 
@@ -42,6 +42,10 @@ class EmpleadoController extends Controller
             'Nombre'=>'required|string|max:100',
             'ApellidoPaterno'=>'required|string|max:100',
             'ApellidoMaterno'=>'required|string|max:100',
+            'NumeroTelefono'=>'required|string|max:100',
+            'Rut'=>'required|string|max:100',
+            'FechaNacimiento'=>'required|string|max:100',
+            'TipoMembresia'=>'required|string|max:100',
             'Correo'=>'required|email',
             'Foto'=>'required|max:10000|mimes:jpeg,png,jpg'
         ];
@@ -58,7 +62,7 @@ class EmpleadoController extends Controller
         }
         Empleado::insert($datosEmpleado);
         
-        return redirect('empleado')->with('mensaje','Empleado creado con éxito');
+        return redirect('empleado')->with('mensaje','Miembro creado con éxito');
         //return response()->json($datosEmpleado);
     }
 

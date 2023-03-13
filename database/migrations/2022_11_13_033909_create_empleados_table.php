@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('ApellidoPaterno');
             $table->string('ApellidoMaterno');
             $table->string('Correo');
+            $table->string('NumeroTelefono');
+            $table->string('Rut');
+            $table->string('FechaNacimiento');
+            $table->string('TipoMembresia');
             $table->string('Foto');
             $table->timestamps();
         });

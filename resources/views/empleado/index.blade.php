@@ -16,6 +16,7 @@
             <th>A.Paterno</th>
             <th>A.Materno</th>
             <th>Correo</th>
+            <th>Membresia</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -31,6 +32,7 @@
             <td>{{ $empleado->ApellidoPaterno }}</td>
             <td>{{ $empleado->ApellidoMaterno }}</td>
             <td>{{ $empleado->Correo }}</td>
+            <td>{{ $empleado->TipoMembresia }}</td>
             <td>
                 <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
                     Editar
@@ -47,5 +49,8 @@
         @endforeach
     </tbody>
 </table>
+<div class="card-body">
+{{$empleados->links()}}
+</div>
 </div>
 @endsection
