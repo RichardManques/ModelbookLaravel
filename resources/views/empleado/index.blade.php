@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-
+    
+<a href="{{ url('empleado/create') }}" class="btn btn-success">Agregar empleado</a>
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
 @endif
-<a href="{{ url('empleado/create') }}" class="btn btn-success">Agregar empleado</a>
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
