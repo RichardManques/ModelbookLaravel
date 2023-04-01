@@ -2,8 +2,19 @@
 
 @section('content')
 <div class="container">
-    
-<a href="{{ url('empleado/create') }}" class="btn btn-success">Agregar empleado</a>
+<a href="{{url('empleado/create')}}" class="btn btn-success">Agregar miembro</a>
+
+<form action="{{route('empleado.index')}}" method="get">
+    <div class="form row">
+        <div class="col-sm-4 my-1">
+            <input type="text" class="form-control" name="texto" value="{{$texto}}">
+        </div>
+        <div class="col-auto my-1">
+            <input type="submit" class="btn btn-primary" value="Buscar">
+        </div>
+    </div>
+</form>
+
 @if(Session::has('mensaje'))
 {{ Session::get('mensaje') }}
 @endif
@@ -22,6 +33,11 @@
     </thead>
     
     <tbody>
+        @if(count($empleados)<=0)
+            <tr>
+                <td colspan="8">No se encontraron resultados</td>
+            </tr>
+        @else
         @foreach($empleados as $empleado)
         <tr>
             <td>{{ $empleado->id }}</td>
@@ -47,10 +63,9 @@
             </td>
         </tr>
         @endforeach
+        @endif
     </tbody>
 </table>
-<div class="card-body">
 {{$empleados->links()}}
-</div>
 </div>
 @endsection

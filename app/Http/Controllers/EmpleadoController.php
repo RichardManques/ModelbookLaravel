@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class EmpleadoController extends Controller
@@ -13,10 +14,18 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datos['empleados'] = Empleado::paginate(10);
-        return view('empleado.index',$datos);//-> la variable $datos se debe pasar a la vista especificado como variable
+        $texto = trim($request->get('texto'));
+        $empleados=DB::table('empleados')
+                    ->select('id','Nombre','ApellidoMaterno','ApellidoPaterno','NumeroTelefono','Correo','Rut','TipoMembresia','Foto')
+                    ->where('ApellidoPaterno','LIKE','%'.$texto.'%')
+                    ->orWhere('Nombre','LIKE','%'.$texto.'%')
+                    ->orWhere('ApellidoMaterno','LIKE','%'.$texto.'%')
+                    ->paginate(5);
+        //$datos['empleados'] = Empleado::paginate(5);
+        return view('empleado.index',compact('empleados','texto'));//-> la variable $datos se debe pasar a la vista especificado como variable
+    
     }
 
     /**

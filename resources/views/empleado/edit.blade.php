@@ -21,7 +21,7 @@
     </div>
     
     <div class="form-group">
-        <label for="Correo">Correo</label>
+        <label for="Correo">Correo (ejemplo@gmail.com)</label>
         <input class="form-control" type="text" name="Correo" id="Correo" value="{{ isset($empleado->Correo)?$empleado->Correo:old('Correo') }}">
     </div>
     <div class="form-group">

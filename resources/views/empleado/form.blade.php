@@ -49,11 +49,11 @@
     <div class="form-group">
         <select class="form-select" aria-label="Default select example" id="TipoMembresia" name="TipoMembresia">
             <option>Tipo de membresía</option>
-            <option value="Diario">Diario (1.000)</option>
-            <option value="Mensual">Mensual (2.000)</option>
-            <option value="Trimestral">Trimestral (3.000)</option>
-            <option value="Semestral">Semestral (4.000)</option>
-            <option value="Anual">Anual (5.000)</option>
+            <option value="Diario">Diario ($3.000)</option>
+            <option value="Mensual">Mensual ($25.000)</option>
+            <option value="Trimestral">Trimestral ($69.000)</option>
+            <option value="Semestral">Semestral ($123.000)</option>
+            <option value="Anual">Anual ($200.000)</option>
         </select>
     </div>
 
